@@ -1,0 +1,16 @@
+  - action:         rqt_logger_level rqt_logger_level
+    command:        rosrun
+    condition:      user prompt
+    condition_info: Waiting for you, sir....
+  - action:         rqt_logger_level rqt_logger_level
+    command:        rosrun
+    condition:      user prompt
+    condition_info: Waiting for you, sir....
+  - action:         rqt_logger_level rqt_logger_level
+    command:        rosrun
+    condition:      user prompt
+    condition_info: Waiting for you, sir....
+  - action:         rqt_logger_level rqt_logger_level
+    command:        rosrun
+    condition:      user prompt
+    condition_info: Waiting for you, sir....

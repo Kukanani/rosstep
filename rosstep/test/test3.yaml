@@ -1,0 +1,10 @@
+# tests functionality of "required" processes
+
+  - action:         bash
+    action_text:    rosrun rqt_logger_level rqt_logger_level
+    condition:      none
+    required:       true
+    
+  - action:         bash
+    action_text:    rosrun rqt_gui rqt_gui
+    condition:      none

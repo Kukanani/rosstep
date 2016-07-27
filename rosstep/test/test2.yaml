@@ -1,0 +1,14 @@
+  - action:         ct_fixtures framework.launch
+    command:        roslaunch
+    condition:      seconds
+    condition_info: 15.0
+    
+  - action:         
+    command:        none
+    condition:      user prompt
+    condition_info: Load fixtures into rack, then press OK.
+    
+  - action:         ct_fixtures do_scan /home/allevato/code/nrg_det/src/ct_fixtures/config/fixture_set.yaml
+    command:        rosrun
+    condition:      none
+    condition_info: 

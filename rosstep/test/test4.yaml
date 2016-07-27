@@ -1,0 +1,13 @@
+  - action:        bash
+    action_text:         rqt_console
+    condition:      none
+    condition_text: 
+  - action:        rosrun
+    action_text:         rqt_logger_level rqt_logger_level
+    condition:      none
+    condition_text: 
+    required: true
+  - action:        roslaunch
+    action_text:         ct_fixtures framework.launch
+    condition:      none
+    condition_text: 

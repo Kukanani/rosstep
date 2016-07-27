@@ -1,0 +1,84 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+
+        <h1>ROSSTEP 1.2 Documentation</h1>
+        <em>Adam Allevato, allevato@utexas.edu<br/>2015-07-31</em>
+        
+        <h2>Intro</h2>
+        <p>Welcome to ROSSTEP! This page will teach you how to use ROSSTEP to create one-click ROS applications.</p>
+        
+        <h3>What ROSSTEP is</h3>
+        <ul>
+            <li>A way of sequentially launching ros nodes, roslaunch files, and other ros-related processes</li>
+            <li>A way of preventing ros processes from running until certain conditions are met</li>
+            <li>A tool for creating one-click ROS applications</li>
+            <li>A possible replacement for roslaunch when less flexibility is needed</li>
+            <li>A YAML schema</li>
+            <li>Awesome</li>
+        </ul>
+        <h3>What ROSSTEP is not</h3>
+        <ul>
+            <li>A flow-control system</li>
+            <li>Designed for Windows</li>
+            <li>A replacement for the terminal</li>
+        </ul>
+        
+        <h2>The ROSSTEP Creator GUI</h2>
+        <p>You should create your ROSSTEP .yaml files using the GUI too, rosstep-creator. All functionality of ROSSTEP is accessible from this gui.
+            It is possible, but not recommended, to write the ROSSTEP YAML files by hand.  </p>
+        <p>Below is a screenshot of the creator, with three steps already added.</p>
+        <img src="creator.png" />
+        <ol>
+            <li><strong>Action Chooser</strong>. Select what type of action you would like to perform. The options are:
+                <ul>
+                    <li>bash - any command that could be run in the terminal</li>
+                    <li>rosrun - a package name and node name</li>
+                    <li>roslaunch - a package name and launch file name</li>
+                    <li>none - no action. Used to make a condition-only step</li>
+                </ul>
+            </li>
+            <li><strong>Action Text</strong>. The text to use when launching the action. For rosrun and roslaunch actions, do not include the text "rosrun" or "roslaunch."
+            </li>
+            <li><strong>Required</strong>. After a required action has been started, ROSSTEP will kill all program execution if/when that process ends. This is useful for "framework" processes, such as camera data collectors or MoveIt.</li>
+            <li><strong>Temporary</strong>. This is almost the opposite of Required. When a Temporary step's conditions are met, the action will be forcibly ended. An example of when you may want to do this would be when you want to allow a continuous process to run until it is killed by user input.</li>
+            <li><strong>Condition Type</strong>. ROSSTEP will not advance to the next step until this condition is met. See the next field for more details.</li>
+            <li><strong>Condition Text</strong>. The text in this box helps define the condition, as follows:
+                <table>
+                    <tr>
+                        <td><strong>Condition Type</strong></td><td><strong>Condition Text</strong></td>
+                    </tr>
+                    <tr><td>none          </td><td>N/A</td></tr>
+                    <tr><td>ROS topic     </td><td>The name of the topic to listen for. The condition will wait until this topic exists on roscore (although this may not imply that messages are being actively published). A leading slash will be automatically added if missing.</td></tr>
+                    <tr><td>ROS param     </td><td>The name of the parameter to wait for. The condition will wait until this parameter exists on roscore. A leading slash will be automatically added if missing.</td></tr>
+                    <tr><td>ROS service   </td><td>The name of the service to wait for. The condition will wait until this service exists on roscore. A leading slash will be automatically added if missing.</td></tr>
+                    <tr><td>seconds       </td><td>How many seconds to wait. Decimal values are accepted.</td></tr>
+                    <tr><td>completion    </td><td>N/A - No text required. Wait for this step's action to complete. This will not work well with Required or Temporary, for obvious reasons.</td></tr>
+                    <tr><td>user prompt   </td><td>The message to display to the user, in a window with an OK button. When OK is pressed, the condition will complete.</td></tr>
+                </table>
+            </li>
+            <li><strong>Move Up Button</strong>. Move this step up the stack (towards the beginning of the rosstep program).</li>
+            <li><strong>Move Down Button</strong>. Move this step down the stack (towards the end of the rosstep program).</li>
+            <li><strong>Delete Button</strong>. Remove this step from the program.</li>
+        </ol>
+        
+        <p>Use the <strong>+</strong> button to add new steps to the program.</p>
+        
+        <p>When you are finished, press the <strong>Build button</strong> and enter a filename. The creator will generate both a ROSSTEP .yaml file, and an Ubuntu .desktop file, allowing one-click running.</p>
+        
+        <h2>Running your ROSSTEP file</h2>
+        <p><strong>Important: if you move your .yaml file after saving it, you must edit the .desktop file to point to its new location. Moving the yaml file is not recommended. Save it in your package/project folder.</strong></p>
+        <p>To run, simply double-click the ROSSTEP icon with your program's name.</p>
+        <img src="runthis.png" />
+    </body>
+</html>

@@ -1,0 +1,11 @@
+  - action:        rosrun
+    action_text:         rqt_gui rqt_gui
+    condition:      seconds
+    condition_text: 10.0
+    required: true
+    temporary: true
+  - action:        rosrun
+    action_text:         rqt_logger_level rqt_logger_level
+    condition:      completion
+    condition_text: 
+    temporary: true
