@@ -1,7 +1,3 @@
-This is not the original version of this software made available by Los Alamos National Security,
-LLC. The original version is available at 
-https://github.com/Kukanani/ROSSTEP/tree/8747daaa86110b2456711906177073ba7d511f92.
-
 Redistribution and use in source and binary forms, with or without modification, are
 permitted provided that the following conditions are met:
 1.	Redistributions of source code must retain the above copyright notice, this list of

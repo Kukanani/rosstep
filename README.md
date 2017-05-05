@@ -10,3 +10,7 @@ conditions have been met.
 rosstep-creator is a QT application designed to create the YAML files required for ROSSTEP. It
 has a nearly one-to-one mapping from interface elements to YAML output, and serves as a convenient
 GUI for working with the ROSSTEP system.
+
+NOTE: This is not the original version of this software made available by Los Alamos National
+Security, LLC. The original version is available at 
+https://github.com/Kukanani/ROSSTEP/tree/8747daaa86110b2456711906177073ba7d511f92.
